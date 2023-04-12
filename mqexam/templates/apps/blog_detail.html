@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<!-- blog-details-left-sidebar31:56-->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Blog Details Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include 'apps/css_con.html' %}
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+        <!-- Begin Body Wrapper -->
+        <div class="body-wrapper">
+            <!-- Begin Header Area -->
+            <div class="li-main-blog-page li-main-blog-details-page pt-60 pb-60 pb-sm-45 pb-xs-45">
+                <div class="container">
+                    <div class="row">
+                        <!-- Begin Li's Blog Sidebar Area -->
+                        <div class="col-lg-9 order-lg-2 order-1">
+                            <div class="row li-main-content">
+                                <div class="col-lg-12">
+                                    <div class="li-blog-single-item pb-30">
+                                        <div class="li-blog-banner">
+                                            <a href=""><img class="img-full" src="../media/{{ blog.image }}" alt=""></a>
+                                        </div>
+                                        <div class="li-blog-content">
+                                            <div class="li-blog-details">
+                                                <h3 class="li-blog-heading pt-25"><a href="#">The Biggest Collection For Digital Product</a></h3>
+                                                <div class="li-blog-meta">
+                                                    <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
+                                                    <a class="comment" href="#"><i class="fa fa-comment-o"></i>{{ comments.count }} comment</a>
+                                                    <a class="post-time" href="#"><i class="fa fa-calendar"></i>{{ blog.created_at }}</a>
+                                                </div>
+                                                <p>{{ blog.body }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Begin Li's Blog Comment Section -->
+                                    <div class="li-comment-section">
+                                        <h3>{{ comments.count }} comment</h3>
+                                        <ul>
+                                            {% for comment in comments %}
+                                                <li>
+                                                    <div class="comment-body pl-15">
+                                                        <div class="comment-post-date">
+                                                            {{ comment.created_at }}
+                                                        </div>
+                                                        <p>{{ comment.body }}</p>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <!-- Li's Blog Comment Section End Here -->
+                                    <!-- Begin Blog comment Box Area -->
+                                    <div class="li-blog-comment-wrapper">
+                                        <h3>leave a reply</h3>
+                                        <p>Your email address will not be published. Required fields are marked *</p>
+                                        <form action="{% url 'add_comment_blog' pk=blog.id %}" method="post">
+                                            {% csrf_token %}
+                                            <div class="comment-post-box">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label>comment</label>
+                                                        <textarea name="body" placeholder="Write a comment"></textarea>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="coment-btn pt-30 pb-sm-30 pb-xs-30 f-left">
+                                                            <input class="li-btn-2" type="submit" name="submit" value="post comment">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Blog comment Box Area End Here -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Main Content Area End Here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Area End Here -->
+        </div>
+
+    </body>
+
+<!-- blog-details-left-sidebar32:00-->
+</html>
